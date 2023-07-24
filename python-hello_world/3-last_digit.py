@@ -4,7 +4,7 @@ number = random.randint(-10000, 10000)
 
 Last_digit = abs(number) % 10
 
-print("The last digit of {number} is{ Last_digit}", end=" ")
+print(f"The last digit of {number} is{ Last_digit}", end=" ")
 
 if Last_digit > 5:
     print('and is greater than 5');
