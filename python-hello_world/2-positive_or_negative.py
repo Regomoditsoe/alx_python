@@ -5,7 +5,7 @@ print('The number {},'.format(number), end=" ")
 
 if number > 0:
     print("is positive");
-elif number < 0:
-    print("is negative"); 
+elif number == 0:
+    print("is zero"); 
 else:
-    print("is zero");
+    print("is negative");
