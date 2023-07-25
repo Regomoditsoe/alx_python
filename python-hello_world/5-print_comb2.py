@@ -1,2 +1,2 @@
-for number in range(99):
+for number in range(100):
     print('{:02d},'.format(number), end=" ")
