@@ -6,8 +6,12 @@ print(add(1, 2))
 
 def add(c, d):
     return c + d
-print(add(98, 0))
+print(add(100, -2))
 
 def add(e, f):
     return e + f
-print(add(100, -2))
+print(add(-100, -2))
+
+def add(g, h):
+    return g + h
+print(add(0, 0))
