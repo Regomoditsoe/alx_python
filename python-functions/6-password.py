@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
 def validate_password(password):
-    if len(password) == 8:
-        return True
+    if len(password) < 8:
+        return False
 
     contains_digit = False
     contains_lowercase = False
