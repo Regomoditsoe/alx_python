@@ -9,7 +9,7 @@ def validate_password(password):
     contains_uppercase = False
 
     for char in password:
-        if char.idigit():
+        if char.isdigit():
             contains_digit = True
         elif char.islower():
            contains_lowercase = True
