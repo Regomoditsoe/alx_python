@@ -14,7 +14,7 @@ def print_arguments(*argv):
         print(f"{num_args} arguments:")
 
     for i, arg in enumerate(argv, start=1):
-        print(f"{i}: {args}")
+        print(f"{i}: {arg}")
 
 if __name__ == "__main__":
         args = sys.argv[1:]
