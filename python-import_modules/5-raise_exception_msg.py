@@ -3,4 +3,4 @@
 def raise_exception_msg(message=""):
     if not message:
         message = ""
-    raise eNameError(message)
+    raise NameError(message)
