@@ -6,4 +6,4 @@ def raise_exception():
     try:
         result = a + b
     except TypeError as E:
-        print("Exception raised")
+        print("Exception has been raised")
