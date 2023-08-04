@@ -10,6 +10,4 @@ def safe_print_division(a, b):
 
     if result is None:
         print("{} / {} = {}".format(a, b, result))
-    if result is not None:
-        print("{} / {} = {}".format(a, b, result))
     return result
