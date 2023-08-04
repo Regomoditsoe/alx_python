@@ -6,9 +6,11 @@ def safe_print_division(a, b):
     except ZeroDivisionError:
         result = None
     finally:
-        print("Inside result: {}".format(result))
-        if result is not None:
-            print("{} / {} = {}".format(a, b, result))
-    return result
-        
+        if not hasattr(safe_print_division, "printed"):
+            safe_print_division.printed = set()
 
+        if result is not None and (a, b) not in safe_print_division.printed:
+            safe_print_division.printed.add((a, b))
+            print("Inside result: {}".format(result))
+            print("{} / {} = {}".format(a, b, result))
+        return result
