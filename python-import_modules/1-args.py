@@ -18,6 +18,4 @@ def print_arguments(*argv):
 
 if __name__ == "__main__":
         args = sys.argv[1:]
-        print(f"./{sys.argv[0]}")
-
         print_arguments(*args)
