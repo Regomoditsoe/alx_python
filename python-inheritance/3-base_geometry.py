@@ -4,3 +4,6 @@
 class BaseGeometry:
     """"A class that represents a Base Geometry"""
     pass
+
+x = BaseGeometry()
+print(dir(x))
