@@ -3,4 +3,5 @@
 
 class BaseGeometry:
     """"A class that represents a Base Geometry"""
-    pass
+    def __dir__(self):
+        return list(super().__dir__()) + ["__class__"]
