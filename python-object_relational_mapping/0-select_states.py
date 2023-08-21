@@ -8,9 +8,8 @@ import MySQLdb
 def list_states(username, password, database):
     # Connect to the MySQL server
     db = MySQLdb.connect(host='localhost', port=3306,
-            user=username, passwd=password, db=database)
-    cursor = db.cursor()
-    
+    user=username, passwd=password, db=database)
+    cursor = db.cursor()    
 
     # Execute the SQL query to fetch all states
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
