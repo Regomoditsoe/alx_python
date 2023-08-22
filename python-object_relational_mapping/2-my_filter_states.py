@@ -12,14 +12,14 @@ if __name__ == "__main__":
             user=sys.argv[1],
             passwd=sys.argv[2],
             db=sys.argv[3],
-            state_name=sys.argv[4]
             host='localhost',
             port=3306)
     c = db.cursor()
 
     # Execute the SQL query to retrieve states with the specified name
-    c.execute("SELECT * FROM `states` WHERE `name` = %s ORDER BY `id`".format(
-        state_name))
+    c.execute = """ SELECT * FROM states
+                WHERE name LIKE BINARY '{}'
+                ORDER BY id ASC """.format(sys.argv[4])
 
     # Fetch all rows and print the states
     [print(state) for state in c.fetchall()]
