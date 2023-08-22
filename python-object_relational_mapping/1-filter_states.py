@@ -23,4 +23,4 @@ if __name__ == "__main__":
         print(state)
 
     # Close database
-    db.close
+    db.close()
