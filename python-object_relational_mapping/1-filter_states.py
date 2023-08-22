@@ -15,7 +15,7 @@ if __name__ == "__main__":
     c = db.cursor()
 
     # Execute the SQL query to retrieve all states sorted by id
-    c.execute("SELECT * FROM `states` ORDER BY `id`")
+    c.execute("SELECT * FROM `states WHERE `name` LIKE 'N%'` ORDER BY `id`")
 
     # Fetch and print results
     states = c.fetchall()
