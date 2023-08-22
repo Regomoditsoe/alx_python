@@ -15,12 +15,8 @@ if __name__ == "__main__":
     c = db.cursor()
 
     # Execute the SQL query to retrieve all states sorted by id
-    c.execute("SELECT * FROM `states WHERE `name` LIKE 'N%'` ORDER BY `id`")
-
-    # Fetch and print results
-    states = c.fetchall()
-    for state in states:
-        print(state)
+    c.execute("SELECT * FROM `states` ORDER BY `id`")
+    [print(state) for state in c.fetchall() if state[1][0] == "N"]
 
     # Close database
     db.close()
