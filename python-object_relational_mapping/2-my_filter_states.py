@@ -18,10 +18,8 @@ if __name__ == "__main__":
     c = db.cursor()
 
     # Execute the SQL query to retrieve states with the specified name
-    c.execute(
-            "SELECT * FROM `states`
-            WHERE `name` = %s
-            ORDER BY `id`".format(state_name))
+    c.execute("SELECT * FROM `states` WHERE `name` = %s ORDER BY `id`".format(
+        state_name))
 
     # Fetch all rows and print the states
     [print(state) for state in c.fetchall()]
