@@ -1,7 +1,7 @@
 #!/user/bin/python3
 """Display values in the states table of hbtn_0e_0_usa"""
 
-import sys
+from sys import argv
 import MySQLdb
 
 if __name__ == "__main__":
