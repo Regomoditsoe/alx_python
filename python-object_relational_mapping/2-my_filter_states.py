@@ -17,12 +17,17 @@ if __name__ == "__main__":
     c = db.cursor()
 
     # Execute the SQL query to retrieve states with the specified name
-    c.execute = """ SELECT * FROM states
+    c.execute("SELECT * FROM states
                 WHERE name LIKE BINARY '{}'
-                ORDER BY id ASC """.format(sys.argv[4])
+                ORDER BY id ASC ".format(sys.argv[4]))
 
     # Fetch all rows and print the states
-    [print(state) for state in c.fetchall()]
+    rows = c.fetchall()
+    for row in rows:
+        print()
+    
+    # Close cursor
+    c.close()
 
     # Close database
     db.close()
