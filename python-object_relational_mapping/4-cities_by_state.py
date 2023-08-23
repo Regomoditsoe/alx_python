@@ -14,7 +14,8 @@ if __name__ == "__main__":
     db = MySQLdb.connect(
             user=mysql_username,
             passwd=mysql_password,
-            db=database_name,host='localhost'
+            db=database_name,
+            host='localhost'
             port=3306)
     c = db.cursor()
 
@@ -30,6 +31,6 @@ if __name__ == "__main__":
     for row in rows:
         print(row)
 
-    #close cursor and database connections
+    # Close cursor and database connections
     c.close()
     db.close()
