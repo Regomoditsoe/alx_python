@@ -35,7 +35,7 @@ if __name__ == "__main__":
             print(row)
 
     except MySQLdb.Error as e:
-        print("Mysql Error:", e)
+        print("MySQL Error:", e)
 
     finally:
         if db:
