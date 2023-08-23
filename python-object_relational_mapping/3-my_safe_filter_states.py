@@ -2,16 +2,16 @@
 """Display values in the states table of hbtn_0e_0_usa"""
 
 import sys
-import MySQL
+import MySQLdb
 
-if __name == "__main__":
+if __name__ == "__main__":
 
 
     # Get the command line arguments
     mysql_username = sys.argv[1]
     mysql_password = sys.argv[2]
     database_name = sys.argv[3]
-    state_name = sys.argv [4]
+    state_name = sys.argv[4]
 
     # Connect to MySQL server
     db = MySQL.connect(
