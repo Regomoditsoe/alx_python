@@ -6,7 +6,6 @@ import MySQLdb
 
 if __name__ == "__main__":
 
-
     # Get the command line arguments
     mysql_username = sys.argv[1]
     mysql_password = sys.argv[2]
