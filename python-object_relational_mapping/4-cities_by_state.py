@@ -15,16 +15,17 @@ if __name__ == "__main__":
             user=mysql_username,
             passwd=mysql_password,
             db=database_name,
-            host='localhost'
+            host='localhost',
             port=3306)
     c = db.cursor()
 
     # Execute SQL query to retrieve all states
-    c.execute("SELECT `c`.`id`.`name`, `s`. `name` \
+    query = "SELECT `c`.`id`.`name`, `s`. `name` \
                     FROM `cities as `c` \
                 INNER JOIN `states` as `s` \
                     ON `c`.`state_id` = `s`.`id` \
-                ORDER BY `c`.`id`")
+                ORDER BY `c`.`id`"
+    c.execute(query)
 
     # Fetchall rows and print cities
     rows = c.fetchall()
