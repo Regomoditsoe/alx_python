@@ -10,7 +10,6 @@ if __name__ == "__main__":
     mysql_username = sys.argv[1]
     mysql_password = sys.argv[2]
     database_name = sys.argv[3]
-    state_name = sys.argv[4]
 
     # Connect to MySQL server
     db = MySQLdb.connect(
@@ -22,8 +21,8 @@ if __name__ == "__main__":
     c = db.cursor()
 
     # Execute the SQL query to retrieve states with the specified name
-    query = "SELECT * FROM states WHERE name = '{}' "
-            "ORDER BY id ASC".format(state_name)
+    query =
+        "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(argv[4])
             
     c.execute(query)
 
