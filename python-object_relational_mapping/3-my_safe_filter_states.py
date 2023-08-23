@@ -12,6 +12,8 @@ if __name__ == "__main__":
     database_name = sys.argv[3]
     state_name = sys.argv[4]
 
+    db = None
+
     try:
         # Connect to MySQL server
         db = MySQL.connect(
