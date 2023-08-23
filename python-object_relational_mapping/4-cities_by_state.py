@@ -21,10 +21,10 @@ if __name__ == "__main__":
 
     # Execute SQL query to retrieve all states
     query = ("SELECT c.id, c.name, s.name "
-                "FROM cities as c "
-                "INNER JOIN states as s "
-                "ON c.state_id = s.id "
-                "ORDER BY c.id")
+            "FROM cities as c "
+            "INNER JOIN states as s "
+            "ON c.state_id = s.id "
+            "ORDER BY c.id")
     c.execute(query)
 
     # Fetchall rows and print cities
