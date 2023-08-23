@@ -16,15 +16,17 @@ if __name__ == "__main__":
             port=3306)
     c = db.cursor()
 
+    state_name = sys.argv[4]
+
     # Execute the SQL query to retrieve states with the specified name
-    c.execute("SELECT * FROM states
+    query = ("SELECT * FROM states
                 WHERE name LIKE BINARY '{}'
-                ORDER BY id ASC ".format(sys.argv[4]))
+                ORDER BY id ASC ".format(state_name))
 
     # Fetch all rows and print the states
     rows = c.fetchall()
     for row in rows:
-        print()
+        print(row)
     
     # Close cursor
     c.close()
