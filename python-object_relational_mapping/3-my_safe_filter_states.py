@@ -12,23 +12,28 @@ if __name__ == "__main__":
     database_name = sys.argv[3]
     state_name = sys.argv[4]
 
-    # Connect to MySQL server
-    db = MySQL.connect(
-            user=mysql_username,
-            passwd=mysql_password,
-            db=database_name,
-            host='localhost',
-            port=3306)
-    c = db.cursor()
+    try:
+        # Connect to MySQL server
+        db = MySQL.connect(
+                user=mysql_username,
+                passwd=mysql_password,
+                db=database_name,
+                host='localhost',
+                port=3306)
+        c = db.cursor()
 
-    # Prepare SQL query
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-    c.execute(query, (state_name,))
+        # Prepare SQL query
+        query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+        c.execute(query, (state_name,))
 
-    rows = c.fetchall()
+        rows = c.fetchall()
 
-    # Display results
-    for row in rows:
-        print(row)
+        # Display results
+        for row in rows:
+            print(row)
+    except MySQL.Error as e:
+        print("Mysql Error:", e)
 
-    db.close()
+    finally:
+        if db:
+            db.close()
