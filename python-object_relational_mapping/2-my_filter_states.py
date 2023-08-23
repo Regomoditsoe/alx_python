@@ -23,14 +23,13 @@ if __name__ == "__main__":
 
     # Execute the SQL query to retrieve states with the specified name
     query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC ".format(state_name)
+    c.execute(query)
 
     # Fetch all rows and print the states
     rows = c.fetchall()
     for row in rows:
         print(row)
     
-    # Close cursor
+    # Close cursor and database connection
     c.close()
-
-    # Close database
     db.close()
