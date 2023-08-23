@@ -2,7 +2,7 @@
 """Display values in the states table of hbtn_0e_0_usa"""
 
 import sys
-import MySQL.connect
+import MySQLdb
 
 if __name__ == "__main__":
 
