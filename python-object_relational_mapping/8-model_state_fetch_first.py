@@ -13,8 +13,8 @@ if __name__ == "__main__":
                            pool_pre_ping=True)
 
     # Create a sssion factory and object
-    Session = sessionmaker(bind=engine)
-    session = Session()
+    Session = sessionmaker()
+    session = Session(bind=engine)
 
     Base.metadata.create_all(engine)
 
@@ -23,4 +23,4 @@ if __name__ == "__main__":
     if state is None:
         print("Nothing")
     else:
-        print("{}: {}."format(state.id, state.name))
+        print("{}: {}".format(state.id, state.name))
