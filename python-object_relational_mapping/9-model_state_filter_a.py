@@ -18,6 +18,6 @@ if __name__ == "__main__":
 
     # Retrieve states with letter 'a' and print names and id
     for state in session.query(State).order_by(State.id):
-        if "a" in state.name.lowe():
+        if "a" in state.name.lower():
             print("{}: {}".format(state.id, state.name))
 
