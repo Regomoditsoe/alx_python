@@ -1,7 +1,7 @@
 #!/usr/bin/pythoni3
-""" Module base geometry """
+"""Module base geometry"""
 
 
 class BaseGeometry:
-    """" empty class """
+    """" empty class"""
     pass
