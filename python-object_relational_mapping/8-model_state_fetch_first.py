@@ -2,8 +2,7 @@
 """Print the first State objectfrom the database hbtn_0e_6_usa"""
 
 import sys
-from model_state import Base
-from model_state import State
+from model_state import Base, State
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -18,7 +17,7 @@ if __name__ == "__main__":
     session = Session()
 
     # Retrieve the first state and print its name and id
-    stae = session.query(State).order_by(State.id).first()
+    state = session.query(State).order_by(State.id).first()
     if state is None:
         print("Nothing")
     else:
