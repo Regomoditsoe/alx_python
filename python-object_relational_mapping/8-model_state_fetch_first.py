@@ -10,7 +10,7 @@ if __name__ == "__main__":
     # Create the SQLAlchemy engine using MySQL credentials
     engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}"
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]),
-                            pool_pre_ping=True)
+                           pool_pre_ping=True)
 
     # Create a sssion factory and object
     Session = sessionmaker(bind=engine)
