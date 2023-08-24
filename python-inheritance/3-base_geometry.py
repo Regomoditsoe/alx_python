@@ -1,7 +1,7 @@
 #!/usr/bin/pythoni3
-"""Define an empty class"""
+""" Module base geometry """
 
 
 class BaseGeometry:
-    """"A class that represents a Base Geometry"""
+    """" empty class """
     pass
