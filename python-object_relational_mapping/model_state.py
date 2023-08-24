@@ -6,6 +6,7 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
+
 class State(Base):
     """Representing a state for MySQL database.
     __tablename__: Name of MySQL table to store states.
