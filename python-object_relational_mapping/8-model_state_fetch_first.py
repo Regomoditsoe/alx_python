@@ -1,4 +1,4 @@
-#!/user/bin/python3
+#!/usr/bin/python3
 """Print the first State objectfrom the database hbtn_0e_6_usa"""
 
 import sys
@@ -8,7 +8,7 @@ from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
     # Create the SQLAlchemy engine using MySQL credentials
-    engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
+    engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}"
                            .format(sys.argv[1], sys.argv[2], sys.argv[3],
                            pool_pre_ping=True)
 
@@ -21,4 +21,4 @@ if __name__ == "__main__":
     if state is None:
         print("Nothing")
     else:
-    print("{}: {}."format(state.id, state.name))
+        print("{}: {}."format(state.id, state.name))
