@@ -16,6 +16,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
+    Base.metadata.create_all(engine)
+
     # Retrieve the first state and print its name and id
     state = session.query(State).order_by(State.id).first()
     if state is None:
