@@ -9,7 +9,7 @@ if __name__ == "__main__":
     # Get MySQL credentials and state name from command line arguments
     mysql_username = sys.argv[1]
     mysql_password = sys.argv[2]
-    ddatabase_name = sys.argv[3]
+    database_name = sys.argv[3]
     state_name = sys.argv[4]
 
     # Connect to MySQL server
@@ -22,8 +22,8 @@ if __name__ == "__main__":
     c = db.cursor()
 
     # Execute the SQL queryto retrieve cities
-    query = ("SeLeCT * FROM cities as c "
-             "INNER JOIN states as s "
+    query = ("SELECT * FROM cities AS c "
+             "INNER JOIN states AS s "
              "ON c.state_id = s.id "
              "WHERE s.name = %s "
              "ORDER BY c.id ASC")
