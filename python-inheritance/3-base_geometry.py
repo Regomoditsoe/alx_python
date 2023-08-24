@@ -1,5 +1,5 @@
 #!/usr/bin/pythoni3
-"""Module base geometry"""
+"""A class that represents the base geometry"""
 
 
 class BaseGeometry:
