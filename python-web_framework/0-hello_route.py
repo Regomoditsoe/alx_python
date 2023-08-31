@@ -10,7 +10,7 @@ app = Flask(__name__)
 @app.route ('/', strict_slashes=False)
 def hello():
     """Defining a route that returns the message Hello HBNB"""
-    name = request.args.get("name", "World")
+    name = request.args.get("name", "HBNB")
     return f"Hello {escape(name)}!"
 
 if __name__ == '__main__':
