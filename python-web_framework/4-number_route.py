@@ -31,7 +31,7 @@ def python(text='is cool'):
     text = text.replace("_", " ")
     return f"Python {escape(text)}"
 
-@app.route('/number/,int:n>', strict_slashes=False)
+@app.route('/number/<int:n>', strict_slashes=False)
 def a_number(n):
     """Defining a route if n is an integer"""
     return f"{n} is a number"
