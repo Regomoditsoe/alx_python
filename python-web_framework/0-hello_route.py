@@ -11,7 +11,7 @@ app = Flask(__name__)
 def hello():
     """Defining a route that returns the message Hello HBNB"""
     name = request.args.get("name", "World")
-    return f"Hello {esape(name)}!"
+    return f"Hello {escape(name)}!"
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
