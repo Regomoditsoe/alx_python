@@ -24,7 +24,7 @@ def c_text(text):
     text = text.replace("_", " ")
     return f"C {escape(text)}"
 
-@app.route('/python/', trict_slashes=False)
+@app.route('/python/', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
 def python(text='is cool'):
     """Defining a Python text followed by value of text"""
