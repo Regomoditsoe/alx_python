@@ -8,7 +8,7 @@ from markupsafe import escape
 app = Flask(__name__)
 
 @app.route ('/', strict_slashes=False)
-def hello():
+def hbnb():
     """Defining a route that returns the message HBNB"""
     return "HBNB"
 
