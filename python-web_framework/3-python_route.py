@@ -25,10 +25,10 @@ def c_text(text):
     return f"C {escape(text)}"
 
 @app.route('/python/<text>', strict_slashes=False)
-def python(text):
+def python(text='is cool'):
     """Defining a Python text followed by value of text"""
     text = text.replace("_", " ")
-    return f"Python (escape(is cool)}" 
+    return f"Python (escape(text)}" 
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
