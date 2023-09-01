@@ -36,10 +36,11 @@ def a_number(n):
     """Defining a route if n is an integer"""
     return f"{n} is a number"
 
-@app.route('/number_template/<int:n>', strict_slashes=False)
+@app.route("/number_template/<int:n>", strict_slashes=False)
 def number_template(n):
     """Defining a number template on HTML page wher n is integer"""
-    return render_template('5-number.html', number=n)
+    number=n
+    return render_template("5-number.html", number=n)
 
 
 if __name__ == '__main__':
