@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python36-number_odd_or_even.py
 """Start a flask web application"""
 # save this as app.py
 
@@ -44,11 +44,11 @@ def number_template(n):
     else:
         return "Not an integer"
 
-
 @app.route("/number_odd_or_even/<n>",strict_slashes=False)
-def number_odd_or_even:
+def number_odd_or_even(n):
     """Display number if integer is odd or even"""
-    if isinstance(n, int)):
+    if isinstance(n, int):
+        odd_or_even = 'even' if n % 2 == 0 else 'odd'
         return render_template("6-number_odd_or_even_template.html", number=n)
     else:
         return "Not an integer"
