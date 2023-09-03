@@ -2,8 +2,7 @@
 """Start a flask web application"""
 # save this as app.py
 
-from flask import Flask, render_template, request
-from markupsafe import escape
+from flask import Flask, render_template, request, escape
 
 app = Flask(__name__)
 
@@ -36,14 +35,11 @@ def a_number(n):
     """Defining a route if n is an integer"""
     return f"{n} is a number"
 
-@app.route("/number_template/<int:n>", strict_slashes=False)
+@app.route('/number_template/<int:n>', strict_slashes=False)
 def number_template(n):
     """Defining a number template on HTML page where n is integer"""
     if isinstance(n, int):
-        return render_template("5-number.html", number=n)
-    else:
-        return "Not a valid integer"
-
+        return render_template('5-number.html', number=n)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
