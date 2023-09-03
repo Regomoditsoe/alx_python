@@ -49,7 +49,7 @@ def number_template(n):
 def number_odd_or_even:
     """Display number if integer is odd or even"""
     if isinstance(n, int)):
-        return render_template("number_odd_or_even_template.html", number=n)
+        return render_template("6-number_odd_or_even_template.html", number=n)
     else:
         return "Not an integer"
 
