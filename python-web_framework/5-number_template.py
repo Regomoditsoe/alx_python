@@ -38,9 +38,11 @@ def a_number(n):
 
 @app.route("/number_template/<int:n>", strict_slashes=False)
 def number_template(n):
-    """Defining a number template on HTML page wher n is integer"""
-    number=n
-    return render_template("5-number.html", number=n)
+    """Defining a number template on HTML page where n is integer"""
+    if isinstance(n, int):
+        return render_template("5-number.html", number=n)
+    else:
+        return "Not a valid integer"
 
 
 if __name__ == '__main__':
