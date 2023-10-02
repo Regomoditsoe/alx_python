@@ -29,9 +29,9 @@ if __name__ == "__main__":
         todos_data = response_todos.json()
 
         completed =[t["title"] for t in todos_data if t["completed"]]
-        print(f"Employee {user_data['name']} is done with tasks ({len(completed)}/{len(todos_data)}):")
+        print(f"Employee {user_data.get('name', 'not found')} is done with tasks ({len(completed)}/{len(todos_data)}):")
 
-        for task in completed:
+        for a, task in enumerate(completed, 1):
             print(f"\t{task}")
 
     except requests.exceptions.HTTPError as e:
