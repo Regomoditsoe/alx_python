@@ -23,7 +23,7 @@ def get_todo_list_of_employees(user_id):
     EMPLOYEE_NAME = user_data['name']
 
 
-    print(f"Employee {EMPLOYEE_NAME} is done with tasks ({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
+    print(f"Employee EMPLOYEE_NAME is done with tasks (NUMBER_OF_DONE_TASKS/TOTAL_NUMBER_OF_TASKS):")
 
     for task in DONE_TASKS:
         print(f"\t{task['title']}")
