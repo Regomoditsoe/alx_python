@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 
-"""Return employee name and to-do list"""
-
 import requests
 import sys
 
@@ -14,32 +12,28 @@ def get_todo_list_of_employees(user_id):
 
     try:
         response_user = requests.get(user_url)
-        response_user.raise_for_status()
         user_data = response_user.json()
-
+        
         response_todos = requests.get(todos_url)
-        response_todos.raise_for_status()
         todos_data = response_todos.json()
 
-        completed =[t["title"] for t in todos_data if t["completed"]]
-        print(f"Employee {user_data.get('name', 'not found')} is done with tasks ({len(completed)}/{len(todos_data)}):")
+        DONE_TASKS =[task for task in todos_data if task["completed"]]
+        
+        TOTAL_NUMBER_OF_TASKS = len(todos_data)
+        NUMBER_OF_DONE_TASKS = len(DONE_TASKS)
+        EMPLOYEE_NAME = user_data['name']
 
-        for a, task in enumerate(completed, 1):
-            print(f"\t{task}")
 
-    except requests.exceptions.HTTPError as e:
+        print(f"Employee {EMPLOYEE_NAME} is done with tasks ({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
+
+        for task in DONE_TASKS:
+            print(f"\t{task['title']}")
+
+    except requests.exceptions.RequestException as e:
         print(f"An error occured: {e}")
-    except KeyError:
-        print("Employee not found.")
-    except Exception as e:
-        print(f"An unexpected error occured: {e}")
+    except ValueError as ve:
+        print(f"Error parsing JSON response: {ve}")
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python3 0-gather_data_from_an_API.py <user_id>")
-    else:
-        try:
-            user_id = int(sys.argv[1])
-            get_todo_list_of_employees(user_id)
-        except ValueError:
-            print("User ID must be an integer")
+    user_id = int(input("Enter User ID: "))
+    get_todo_list_of_employees(user_id)
