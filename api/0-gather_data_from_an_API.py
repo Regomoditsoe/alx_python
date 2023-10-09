@@ -30,7 +30,7 @@ if __name__ == "__main__":
         DONE_TASKS = sum(1 for task in data_todos if task["completed"])
         NUMBER_OF_DONE_TASKS = DONE_TASKS
 
-        print(f"First Line: Employee {EMPLOYEE_NAME} is done with tasks ({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
+        print(f"Employee {EMPLOYEE_NAME} is done with tasks ({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
 
         for task in data_todos:
             if task["completed"]:
