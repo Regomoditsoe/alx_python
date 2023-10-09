@@ -1,45 +1,40 @@
 #!/usr/bin/python3
 
+""" A python script that returns information about employee or ID."""
+
 import requests
 import sys
 
 
-def get_todo_list_of_employees(employee_id):
-    # define url
-    employee_url = "https://jsonplaceholder.typicode.com"
-
-    # A request to get employee details
-    response_employee = requests.get(f"{employee_url}/users/{employee_id}")
-    employee_data = response_employee.json()
-    EMPLOYEE_NAME = employee_data.get("name")
-
-    # Make requests for the todos 
-    response_todos = requests.get(f"{employee_url}/users/{employee_id}/todos")
-    todos_data = response_todos.json()
-
-    # Calculating number of done tasks
-    DONE_TASKS =[todo for todo in todos_data if todo["completed"]]
-        
-    TOTAL_NUMBER_OF_TASKS = len(todos_data)
-    NUMBER_OF_DONE_TASKS = len(DONE_TASKS)
-    
-
-
-    print(f"Employee {EMPLOYEE_NAME} is done with tasks ({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
-
-    for task in DONE_TASKS:
-        print(f"\t{task['title']}")
-
-
 if __name__ == "__main__":
+
     if len(sys.argv) != 2:
         print("Usage: python gather_data_from_an_API.py <employee_id>")
         sys.exit(1)
 
+    employee_id = sys.argv[1]
+    employee_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
+    # Make requests for the todos 
+    todos = f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}"
     try:
-        employee_id = int(sys.argv[1])
-    except ValueError:
-        print("Employee ID must be an integer.")
-        sys.exit(1)
+        response_employee = requests.get(employee_url)
+        response_employee.raise_for_status()
+        response_todos = requests.get(todos)
+        response_employee.raise_for_status()
 
-    get_todo_list_of_employees(employee_id)
+        user_data = response_employee.json()
+        data_todos = response_todos.json()
+
+        EMPLOYEE_NAME = user_data.get("name")
+        TOTAL_NUMBER_OF_TASKS = len(data_todos)
+        DONE_TASKS = sum(1 for task in data_todos if task["completed"])
+        NUMBER_OF_DONE_TASKS = DONE_TASKS
+
+        print(f"Employee {EMPLOYEE_NAME} is done with tasks ({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
+
+        for task in data_todos:
+            if task["completed"]:
+                print(f"\t{task['title']}")
+
+    except requests.exceptions.RequestException as e:
+        print(f"An error has occured: {e}")
